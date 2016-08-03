@@ -4,11 +4,12 @@
     "author": "Siavash Askari Nasr",
     "version": "1.4.0",
     "fullName": "Magrent",
-    "id": "jid1-9tZMAIdeuiEjHg",
+    "id": "jid1-9tZMAIdeuiEjHg@jetpack",
     "permissions": {
         "private-browsing": true,
         "multiprocess": true
     },
+    "main": "lib/main.js",
     "description": "This add-on converts magnet links and torrent hashes to torrent files. It uses torrent storage services like Torrage.com for downloading torrent files.",
     "preferences": [
         {
