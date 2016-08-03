@@ -29,56 +29,30 @@ let showResult = output => {
 form.addEventListener('submit', e => {
     let torrent;
     let input = magnetInput.value;
-    let srcIsPiratebay = /.*thepiratebay\.[^.]*?\/torrent\/\d+(\/.*)?/.test(input);
 
-    if (srcIsPiratebay)
-        torrent = piratebayTorrent(input);
-    else
-        torrent = magrent(input);
+    torrent = magrent(input);
 
     if (torrent) {
         let torrentLinks = '';
 
-        if (srcIsPiratebay) {
-            let srcName = 'piratebaytorrents.info';
-            let torrentName = torrent.filename ? torrent.filename : torrent.hash;
+        // List of torrent cache services
+        let torrentSites = ['itorrents.org', 'btcache.me', 'torrasave.download', 'thetorrent.org'];
 
-            torrentLinks = '<a target="_blank" class="torrentLink" href="http://' +
-                escapeHTML(srcName) +
-                '/' +
-                escapeHTML(torrent.hash) +
-                '/' +
-                escapeHTML(torrentName) +
-                '.torrent" data-fileName="' +
-                escapeHTML(torrentName) +
+        // Building torrent download links
+        for (let i=0, sitesCount=torrentSites.length; i<sitesCount; i++) {
+            torrentLinks += '<a target="_blank" class="torrentLink" href="' +
+                generateTorrentUrl(escapeHTML(torrentSites[i]), escapeHTML(torrent.hash), escapeHTML(torrent.filename)) +
+                '" data-fileName="' +
+                escapeHTML(torrent.filename) +
                 '" data-hash="' +
                 escapeHTML(torrent.hash) +
                 '" data-srcName="' +
-                escapeHTML(srcName) +
+                escapeHTML(torrentSites[i]) +
                 '">' +
-                escapeHTML(srcName) +
+                escapeHTML(torrentSites[i]) +
                 '</a>\n';
-                
         }
-        else {
-            // List of torrent cache services
-            let torrentSites = ['itorrents.org', 'btcache.me', 'torrasave.download', 'thetorrent.org'];
 
-            // Building torrent download links
-            for (let i=0, sitesCount=torrentSites.length; i<sitesCount; i++) {
-                torrentLinks += '<a target="_blank" class="torrentLink" href="' +
-                    generateTorrentUrl(escapeHTML(torrentSites[i]), escapeHTML(torrent.hash), escapeHTML(torrent.filename)) +
-                    '" data-fileName="' +
-                    escapeHTML(torrent.filename) +
-                    '" data-hash="' +
-                    escapeHTML(torrent.hash) +
-                    '" data-srcName="' +
-                    escapeHTML(torrentSites[i]) +
-                    '">' +
-                    escapeHTML(torrentSites[i]) +
-                    '</a>\n';
-            }
-        }
         showResult('<div class="fade-in"><p>' +
                    (!torrent.name ? '.torrent file' : '<span id="torrentName"></span>') +
                    '</p><p>' +
@@ -89,7 +63,7 @@ form.addEventListener('submit', e => {
             document.getElementById('torrentName').textContent = decodeURIComponent(torrent.name);
     }
     else {
-        showResult('<p class="fade-in">Enter a valid Magnet URI, Hash or Piratebay URL</p>');
+        showResult('<p class="fade-in">Enter a valid Magnet URI or Hash</p>');
     }
 
     e.preventDefault();

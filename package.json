@@ -9,7 +9,7 @@
         "private-browsing": true,
         "multiprocess": true
     },
-    "description": "This add-on converts magnet links, torrent hashes and Piratebay URLs to torrent files. It uses torrent storage services like Torrage.com for downloading torrent files.",
+    "description": "This add-on converts magnet links and torrent hashes to torrent files. It uses torrent storage services like Torrage.com for downloading torrent files.",
     "preferences": [
         {
             "name": "torrentSource",
