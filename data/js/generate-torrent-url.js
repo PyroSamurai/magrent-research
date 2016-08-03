@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015  Siavash Askari Nasr
+ * Copyright (C) 2015, 2016  Siavash Askari Nasr
  *
  * This file is part of Magrent.
  *
@@ -18,14 +18,18 @@
  */
 
 const generateTorrentUrl = (torrentHost, torrentHash, torrentFilename) => {
-    let protocol = 'http';
-    if (torrentHost === 'torrage.com') protocol = 'https';
+    let protocol = 'https';
+    if (torrentHost === 'btcache.me' || torrentHost === 'thetorrent.org')
+        protocol = 'http';
 
     let extension = '.torrent';
     if (torrentHost === 'btcache.me') extension = '';
 
-    if (torrentFilename && torrentHost === 'torcache.net')
+    if (torrentFilename && torrentHost === 'itorrents.org')
         extension += '?title=' + torrentFilename;
 
-    return protocol + '://' + torrentHost + '/torrent/' + torrentHash + extension;
+    let path = '/torrent/';
+    if (torrentHost === 'thetorrent.org') path = '/';
+
+    return protocol + '://' + torrentHost + path + torrentHash + extension;
 };

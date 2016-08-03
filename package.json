@@ -15,19 +15,19 @@
             "type": "menulist",
             "title": "Default torrent source",
             "description": "Will be used in 'Download torrent file' context menu item",
-            "value": "torcache.net",
+            "value": "itorrents.org",
             "options": [
                 {
-                    "value": "torrage.com",
-                    "label": "Torrage.com"
-                },
-                {
-                    "value": "torcache.net",
-                    "label": "Torcache.net"
+                    "value": "itorrents.org",
+                    "label": "iTorrents.org"
                 },
                 {
                     "value": "btcache.me",
                     "label": "btcache.me"
+                },
+                {
+                    "value": "torrasave.download",
+                    "label": "Torrasave.download"
                 },
                 {
                     "value": "thetorrent.org",
