@@ -18,9 +18,7 @@
  */
 
 const generateTorrentUrl = (torrentHost, torrentHash, torrentFilename) => {
-    let protocol = 'https';
-    if (torrentHost === 'btcache.me' || torrentHost === 'thetorrent.org')
-        protocol = 'http';
+    let protocol = 'http';
 
     let extension = '.torrent';
     if (torrentHost === 'btcache.me') extension = '';
