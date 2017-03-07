@@ -36,7 +36,7 @@ form.addEventListener('submit', e => {
         let torrentLinks = '';
 
         // List of torrent cache services
-        let torrentSites = ['itorrents.org', 'btcache.me', 'torrasave.download', 'thetorrent.org'];
+        let torrentSites = ['itorrents.org', 'btcache.me', 'torrasave.top', 'thetorrent.org'];
 
         // Building torrent download links
         for (let i=0, sitesCount=torrentSites.length; i<sitesCount; i++) {

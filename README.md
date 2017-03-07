@@ -19,7 +19,7 @@ You can change the default torrent source from Preferences/Options.
 ## Magrent button and panel
 Clicking on the add-on's button will open a panel for converting magnet URIs and hashes to torrent files. It checks your clipboard content and when it recognizes a magnet URI or a hash, it will convert them automatically and show the download links.
 
-Download links are from iTorrents.org, btcache.me, Torrasave.download and TheTorrent.org.
+Download links are from iTorrents.org, btcache.me, Torrasave.top and TheTorrent.org.
 
 ## Notes
 * Most of the time you don't need to click on the Convert button, because Magrent grabs and converts the magnet and hash automatically.
